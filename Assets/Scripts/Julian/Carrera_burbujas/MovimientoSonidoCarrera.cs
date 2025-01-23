@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovimientoSonidoCarrera : MonoBehaviour
@@ -17,17 +16,30 @@ public class MovimientoSonidoCarrera : MonoBehaviour
 
     // Umbral mínimo para aplicar la fuerza.
     public float threshold = 10f;
+
+    private bool detenerMovimiento = false;  // Variable de control de movimiento
+    private Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
+        if (detenerMovimiento)
+        {
+            rb.velocity = Vector2.zero;  
+            return;  // Evita que se ejecute el código de movimiento mientras está detenida
+        }
+
         // Obtiene la intensidad del sonido desde el micrófono, ajustada por la sensibilidad.
         float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         // Si la intensidad del sonido supera el umbral, aplica una fuerza al objeto.
         if (loudness >= threshold)
         {
-            rb.AddForce(Vector2.left * fuerza, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * fuerza, ForceMode2D.Impulse);
         }
         else
         {
@@ -36,5 +48,23 @@ public class MovimientoSonidoCarrera : MonoBehaviour
         }
     }
 
-}
+    public void DetenerJugador()
+    {
+        if (!detenerMovimiento)
+        {
+            StartCoroutine(PararPorUnSegundo());
+        }
+    }
 
+    IEnumerator PararPorUnSegundo()
+    {
+        detenerMovimiento = true;
+        rb.velocity = Vector2.zero; 
+        Debug.Log("Jugador detenido!");
+        
+        yield return new WaitForSeconds(1.0f);  // Esperar 1 segundo
+
+        detenerMovimiento = false;
+        Debug.Log("Jugador reanudado!");
+    }
+}

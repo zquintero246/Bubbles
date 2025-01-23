@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner_Obstaculos : MonoBehaviour
+public class SpawnerObstaculosIA : MonoBehaviour
 {
-    public GameObject[] partesPista;  // Referencia a las partes de la pista
+    public GameObject[] partesPista;  // Referencia a las partes de la pista de la IA
     public GameObject[] obstaculos;   // Array de prefabs de obstáculos
     public Transform parentPista;     // Referencia al objeto Pista_Carrera
     public float tiempoEntreSpawn = 2.0f;  // Tiempo entre la aparición de obstáculos
@@ -12,9 +12,9 @@ public class Spawner_Obstaculos : MonoBehaviour
     public float radioDeSpawn = 2.0f;  // Radio mínimo entre obstáculos
 
     private List<GameObject> obstaculosActivos = new List<GameObject>();
-    private float[] posicionesY = { 1.3f, 2.6f };  // Posiciones posibles en el eje Y
+    private float[] posicionesY = { -1.9f, -3.2f };  // Posiciones Y específicas para la IA
 
-    private PistaCarrera pistaCarrera;
+   private PistaCarrera pistaCarrera;
 
     void Start()
     {
@@ -63,7 +63,7 @@ public class Spawner_Obstaculos : MonoBehaviour
                         int indexObstaculo = Random.Range(0, obstaculos.Length);
                         GameObject nuevoObstaculo = Instantiate(obstaculos[indexObstaculo], spawnPosition, Quaternion.identity);
 
-                        // Asignar la pista como padre del obstáculo
+                        // Asignar la pista de la IA como padre del obstáculo
                         nuevoObstaculo.transform.SetParent(parentPista);
 
                         // Agregar el obstáculo a la lista de obstáculos activos

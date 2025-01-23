@@ -16,6 +16,10 @@ public class Obstaculo_Estatico : MonoBehaviour
     // Detección de colisión con el jugador
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        Debug.Log("Colisión con: " + other.name);
+
+        
         if (other.CompareTag("Player"))
         {
             // Reducir velocidad del jugador o aplicar penalización

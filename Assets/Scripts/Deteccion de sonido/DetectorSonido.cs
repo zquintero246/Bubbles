@@ -4,42 +4,58 @@ using UnityEngine;
 
 public class DetectorSonido : MonoBehaviour
 {
+    // Tamaño de la ventana de muestra utilizada para el cálculo del volumen.
+    public int sampleWindow = 64;
 
-    public int sampleWindow= 64;
+    // Clip de audio donde se almacenará la entrada del micrófono.
     private AudioClip microphoneClip;
-    // Start is called before the first frame update
+
     void Start()
     {
+        // Inicia la grabación del micrófono al iniciar el juego.
         MicrophoneToAudioClip();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MicrophoneToAudioClip()
     {
-        
-    }
-    public void MicrophoneToAudioClip(){
+        // Obtiene el nombre del primer micrófono disponible.
         string MicrophoneName = Microphone.devices[0];
-        microphoneClip = Microphone.Start(MicrophoneName, true,20,AudioSettings.outputSampleRate);
+
+        // Inicia la grabación del micrófono en un clip de audio con una duración de 20 segundos.
+        microphoneClip = Microphone.Start(MicrophoneName, true, 20, AudioSettings.outputSampleRate);
     }
 
-    public float GetLoudnessFromMicrophone(){
-        return GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]),microphoneClip);
+    // Obtiene la intensidad del sonido en la posición actual del micrófono.
+    public float GetLoudnessFromMicrophone()
+    {
+        // Obtiene la posición actual de la grabación del micrófono y analiza el volumen.
+        return GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
     }
-    public float GetLoudnessFromAudioClip(int clipPosition,AudioClip clip){
+
+    // Calcula la intensidad del sonido a partir del clip de audio capturado.
+    public float GetLoudnessFromAudioClip(int clipPosition, AudioClip clip)
+    {
+        // Determina la posición de inicio de la ventana de muestras.
         int startPosition = clipPosition - sampleWindow;
-        if(startPosition<0){
+
+        // Evita errores si la posición de inicio es negativa.
+        if (startPosition < 0)
+        {
             return 0;
         }
+
+        // Almacena los datos de la onda de sonido en un arreglo de tamaño `sampleWindow`.
         float[] waveData = new float[sampleWindow];
-        clip.GetData(waveData,startPosition);
+        clip.GetData(waveData, startPosition);
 
+        // Calcula la suma total de los valores absolutos de la onda para estimar la intensidad.
         float totalLoudness = 0;
-
-        for(int i = 0; i < sampleWindow; i++){
+        for (int i = 0; i < sampleWindow; i++)
+        {
             totalLoudness += Mathf.Abs(waveData[i]);
         }
 
-        return totalLoudness/sampleWindow;
+        // Retorna la intensidad promedio del sonido.
+        return totalLoudness / sampleWindow;
     }
 }

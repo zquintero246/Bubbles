@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class TestPlayerMicrophone : MonoBehaviour
 {
-    // Start is called before the first frame update
-     public AudioSource source;
+    // Fuente de audio para reproducir el sonido capturado del micrófono (opcional).
+    public AudioSource source;
+
+    // Definen los valores mínimos y máximos de escala del objeto (posiblemente para animaciones visuales, pero no utilizados en este script).
     public Vector2 minScale;
     public Vector2 maxScale;
 
+    // Referencia al script DetectorSonido, encargado de obtener la intensidad del sonido.
     public DetectorSonido detector;
 
+    // Sensibilidad del detector de sonido, controla cuán reactivo es a la señal de entrada.
     public float loudnessSensibility = 100;
+
+    // Umbral mínimo para aplicar la fuerza.
     public float threshold = 10f;
+
     void Update()
     {
+        // Obtiene la intensidad del sonido desde el micrófono, ajustada por la sensibilidad.
         float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
-        if(loudness >= threshold){
-            float fuerza = 1f; 
+        
+        // Si la intensidad del sonido supera el umbral, aplica una fuerza al objeto.
+        if (loudness >= threshold)
+        {
+            float fuerza = 1f; // Magnitud de la fuerza aplicada.
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * fuerza, ForceMode2D.Impulse);
-
         }
-
-        
-        
-
-        // Aplicando la escala en 2D (manteniendo Z en 1 para evitar problemas en 2D)
-       
+        else
+        {
+            // Detiene el objeto si no hay sonido.
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 }
+

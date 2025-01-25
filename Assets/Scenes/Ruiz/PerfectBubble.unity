@@ -607,7 +607,8 @@ MonoBehaviour:
   loudnesSensivity: 320
   threshold: 35
   forcePulse: 0.761803
-  bubbleInterval: 0
+  IsInside: 0
+  bubbleInterval: 1
   totalTime: 0
   currentInTime: 0
   bubblePrefab: {fileID: 5807570241387625240, guid: 5382c81af7b11764da42e4d862dd3ad8, type: 3}

@@ -10,6 +10,8 @@ public class PerfectZoneController : MonoBehaviour
     public float threshold;
     public float forcePulse;
 
+    [SerializeField] bool IsInside = false;
+
     //Time Variables
     [SerializeField] float bubbleInterval;
     [SerializeField] float totalTime; //Tiempo para la puntuación final
@@ -23,6 +25,7 @@ public class PerfectZoneController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        StartCoroutine("GenerateBubbles");
     }
 
     // Update is called once per frame
@@ -56,26 +59,32 @@ public class PerfectZoneController : MonoBehaviour
     }
     private IEnumerator GenerateBubbles()
     {
-        GameObject bubble = Instantiate(bubblePrefab, bubbleSpawner.transform.position, Quaternion.identity);
+        Debug.Log("Me activé");
+        if (IsInside)
+        {
+            Debug.Log("Estoy generando burbujas");
+            GameObject bubble = Instantiate(bubblePrefab, bubbleSpawner.transform.position, Quaternion.identity);
 
-        bubble.transform.localScale = new Vector3(1 + currentInTime / 10f, 1 + currentInTime / 10f, 1 + currentInTime / 10f);
-
+            bubble.transform.localScale = new Vector3(0.1f + currentInTime / 10f, 0.1f + currentInTime / 10f, 0.1f + currentInTime / 10f);
+        }
         yield return new WaitForSeconds(bubbleInterval / Mathf.Max(1f, currentInTime)); // Genera más burbujas cuanto más tiempo pase
+
+        StartCoroutine("GenerateBubbles");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine("GenerateBubbles");
+        IsInside = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        currentInTime = Time.deltaTime;
+        currentInTime += Time.deltaTime;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        StopAllCoroutines();
+        IsInside = false;
         totalTime += currentInTime;
         currentInTime = 0f;
     }

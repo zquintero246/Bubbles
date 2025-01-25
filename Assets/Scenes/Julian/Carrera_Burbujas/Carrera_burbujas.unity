@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   detector: {fileID: 1180978281}
-  loudnessSensibility: 100
-  fuerza: 0.009
-  threshold: 0.001
+  loudnessSensibility: 320
+  fuerza: 0.1
+  threshold: 30
 --- !u!1 &196555580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2349715201674883184, guid: b8fab44efe942e34b9b3dcfbd1b73e47, type: 3}
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadMovimiento: 14
-  margenDeError: 0.5
+  margenDeError: 0
   detectorObstaculos: {fileID: 1817982045}
   capaObstaculos:
     serializedVersion: 2
@@ -2094,7 +2094,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1458455405969935421, guid: d29b2c56c0a4fe943a149384dafbfaa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.029132968
+      value: 3.78
       objectReference: {fileID: 0}
     - target: {fileID: 1458455405969935421, guid: d29b2c56c0a4fe943a149384dafbfaa0, type: 3}
       propertyPath: m_LocalPosition.y

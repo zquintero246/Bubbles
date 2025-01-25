@@ -20,6 +20,7 @@ public class IAPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(transform.position.x, posicionCarril1, transform.position.z);
+        ActualizarDificultad();
     }
 
     void Update()
@@ -40,6 +41,13 @@ public class IAPlayer : MonoBehaviour
             Debug.Log("¡Obstáculo detectado: " + hit.collider.gameObject.name + "!");
             DecidirMovimiento();
         }
+
+        if (DifficultyManager.instance != null)
+     {
+        margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);
+        }
+
+        
     }
 
     void DecidirMovimiento()
@@ -71,7 +79,14 @@ public class IAPlayer : MonoBehaviour
 
         Debug.Log("IA cambió de carril");
     }
-
+    void ActualizarDificultad()
+{
+    if (DifficultyManager.instance != null)
+    {
+        margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);
+            Debug.Log("Dificultad aplicada a Carrera Burbuja: " + DifficultyManager.instance.dificultadGlobal);
+    }
+}
     public void DetenerIA()
     {
         StartCoroutine(DetenerPorObstaculo());

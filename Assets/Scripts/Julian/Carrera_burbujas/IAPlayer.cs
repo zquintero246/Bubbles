@@ -44,7 +44,7 @@ public class IAPlayer : MonoBehaviour
 
         if (DifficultyManager.instance != null)
      {
-        margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);
+        margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);    
         }
 
         
@@ -79,14 +79,14 @@ public class IAPlayer : MonoBehaviour
 
         Debug.Log("IA cambió de carril");
     }
-    void ActualizarDificultad()
-{
-    if (DifficultyManager.instance != null)
+        void ActualizarDificultad()
     {
-        margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);
-            Debug.Log("Dificultad aplicada a Carrera Burbuja: " + DifficultyManager.instance.dificultadGlobal);
+        if (DifficultyManager.instance != null)
+        {
+            margenDeError = 0.5f-(DifficultyManager.instance.dificultadGlobal*0.1f);
+                Debug.Log("Dificultad aplicada a Carrera Burbuja: " + DifficultyManager.instance.dificultadGlobal);
+        }
     }
-}
     public void DetenerIA()
     {
         StartCoroutine(DetenerPorObstaculo());

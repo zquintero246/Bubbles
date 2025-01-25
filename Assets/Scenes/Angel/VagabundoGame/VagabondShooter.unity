@@ -851,8 +851,7 @@ MonoBehaviour:
   acceleration: 10
   maxSpeed: 15
   friction: 3
-  cooldownRate: 1
-  CooldownTiro: 0
+  cooldownRate: 3
 --- !u!212 &1921485545
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Julian/Carrera_Burbujas/Carrera_burbujas.unity
     guid: 3a6992057a0aafc4ca0e0bfa27af6142
+  - enabled: 1
+    path: Assets/Scenes/Angel/VagabundoGame/VagabondShooter.unity
+    guid: d82a1e3e7a9f21d43a8e2795daef3405
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

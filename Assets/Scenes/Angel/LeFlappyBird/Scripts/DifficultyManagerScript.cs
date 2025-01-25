@@ -89,6 +89,7 @@ public class DifficultyManager : MonoBehaviour
             Debug.Log("Dificultad aplicada a Carrera Burbuja: " + dificultadGlobal);
         }
     }
+    
 
     void OnDestroy()
     {

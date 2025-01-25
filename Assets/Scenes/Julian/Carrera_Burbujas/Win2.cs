@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Win : MonoBehaviour
+public class Win2 : MonoBehaviour
 {
     private DifficultyManager dificultad;  // Variable para almacenar la referencia
     public string[] sceneNames;

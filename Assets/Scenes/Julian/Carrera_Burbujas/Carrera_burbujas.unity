@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   detector: {fileID: 1180978281}
-  loudnessSensibility: 100
-  fuerza: 0.009
-  threshold: 0.001
+  loudnessSensibility: 50
+  fuerza: 0.09
+  threshold: 3
 --- !u!1 &196555580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2349715201674883184, guid: b8fab44efe942e34b9b3dcfbd1b73e47, type: 3}

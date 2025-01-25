@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleController : MonoBehaviour
+public class BubbleMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float speed = 2f;

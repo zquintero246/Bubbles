@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   detector: {fileID: 1180978281}
-  loudnessSensibility: 320
-  fuerza: 0.1
-  threshold: 30
+loudnessSensibility: 320
+fuerza: 0.1
+threshold: 30
 --- !u!1 &149573344
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,21 +321,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &189295117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189295115}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -124.38999, y: 0.40999997, z: 1}
-  m_LocalScale: {x: 274.7166, y: 7.9895425, z: 99.535}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1987671002}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &196555580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2349715201674883184, guid: b8fab44efe942e34b9b3dcfbd1b73e47, type: 3}

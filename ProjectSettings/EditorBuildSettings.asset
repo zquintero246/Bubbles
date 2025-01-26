@@ -9,6 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+  - enabled: 1
     path: Assets/Scenes/Angel/LeFlappyBird/Flappybird.unity
     guid: 87d208dd133d8944187090630fa69013
   - enabled: 1

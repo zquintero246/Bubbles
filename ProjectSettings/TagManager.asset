@@ -7,6 +7,8 @@ TagManager:
   - IAPlayer
   - Objetivo
   - Meta
+  - Obstacle
+  - Enemigo
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - capaObstaculos
   - Water
   - UI
-  - 
+  - Burbujas
   - 
   - 
   - 

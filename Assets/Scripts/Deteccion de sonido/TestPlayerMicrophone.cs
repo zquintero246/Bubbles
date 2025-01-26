@@ -15,7 +15,7 @@ public class TestPlayerMicrophone : MonoBehaviour
     public DetectorSonido detector;
 
     // Sensibilidad del detector de sonido, controla cuán reactivo es a la señal de entrada.
-    public float loudnessSensibility = 100;
+    public float loudnessSensibility = 320;
 
     // Umbral mínimo para aplicar la fuerza.
     public float threshold = 10f;

@@ -14,6 +14,11 @@ public class MirillaController : MonoBehaviour
     private int scorePosible = 150;   // Puntuación inicial
     private int scoreDecay = 10;      // Cantidad a disminuir cada ciclo
 
+    // Referencias a los objetos de la escena
+    public GameObject transformacion;
+    public GameObject correr;
+    public GameObject winManager;  // Objeto WinManager que se activará
+
     void Start()
     {
         ActualizarDificultad();
@@ -25,7 +30,7 @@ public class MirillaController : MonoBehaviour
         // Capturar entrada del teclado
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-        bool inputSpace = Input.GetKeyDown(KeyCode.Space);  // Usa GetKeyDown para detectar solo la primera pulsación
+        bool inputSpace = Input.GetKeyDown(KeyCode.Space);  // Detectar solo la primera pulsación
 
         // Aplicar aceleración según la dirección de entrada
         Vector2 inputDirection = new Vector2(inputX, inputY).normalized;
@@ -61,7 +66,19 @@ public class MirillaController : MonoBehaviour
             if (EnemigoEnMira)
             {
                 Debug.Log("Le diste al enemigo");
-                ScoreMan.instance.AddScore(scorePosible);
+                //ScoreMan.instance.AddScore(scorePosible);
+
+                // Activar transformacion y desactivar correr
+                
+                    transformacion.SetActive(true);
+                    correr.SetActive(false);
+                
+
+                // Activar el WinManager después de 2 segundos
+                
+                
+                    Invoke(nameof(ActivarWinManager), 2f);
+                
             }
             else
             {
@@ -110,12 +127,19 @@ public class MirillaController : MonoBehaviour
         if (scorePosible > 0)
         {
             scorePosible -= scoreDecay;
-            Debug.Log("Puntuación posible reducida: " + scorePosible);
+            Debug.Log("Puntuación posible reducida: " + scorePosible);  
         }
         else
         {
             Debug.Log("Perdiste");
             CancelInvoke("ReducirScore"); // Detener la reducción de puntuación
         }
+    }
+
+    // Método para activar el WinManager
+    void ActivarWinManager()
+    {
+        winManager.SetActive(true);
+        Debug.Log("WinManager activado después de 2 segundos.");
     }
 }

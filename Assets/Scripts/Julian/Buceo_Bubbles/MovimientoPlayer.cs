@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MovimientoPlayer : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class MovimientoPlayer : MonoBehaviour
     public float tiempoInicial = 20f;  // Tiempo inicial del juego en segundos
     public float tiempoExtraPorObjetivo = 5f;  // Tiempo extra otorgado al recoger un objetivo
     public float tiempoMaximo = 10f;  // Tiempo máximo permitido en el temporizador
-    public Text temporizadorTexto;  // Referencia al UI para mostrar el tiempo restante
-
+    public TextMeshProUGUI temporizadorTexto;  // Referencia al UI para mostrar el tiempo restante
+    public string[] sceneNames;
     private Rigidbody2D rb;
     private Vector2 movement;
     private float tiempoRestante;
@@ -65,8 +66,11 @@ public class MovimientoPlayer : MonoBehaviour
             // Limitar el tiempo al máximo definido
             tiempoRestante = Mathf.Clamp(tiempoRestante, 0, tiempoMaximo);
 
+            // Sumar 100 puntos usando ScoreMan
+            ScoreMan.instance.AddScore(100);
+
             Destroy(other.gameObject);
-            Debug.Log("¡Objetivo recogido! Tiempo añadido: " + tiempoExtraPorObjetivo);
+            Debug.Log("¡Objetivo recogido! Tiempo añadido: " + tiempoExtraPorObjetivo + ", Puntos ganados: 100");
         }
 
         // Verificar si el jugador ha alcanzado la meta
@@ -78,7 +82,7 @@ public class MovimientoPlayer : MonoBehaviour
 
     void ActualizarTemporizador()
     {
-        temporizadorTexto.text = "Tiempo: " + Mathf.Ceil(tiempoRestante).ToString();
+        temporizadorTexto.text = "Oxígeno Restante: " + Mathf.Ceil(tiempoRestante).ToString();
     }
 
     void FinDelJuego(bool victoria)
@@ -89,15 +93,31 @@ public class MovimientoPlayer : MonoBehaviour
         if (victoria)
         {
             Debug.Log("¡Felicidades! Has alcanzado la meta.");
+            LoadRandomScene();
         }
         else
         {
             Debug.Log("Tiempo agotado. ¡Fin del juego!");
         }
 
-        // Reiniciar el juego después de 2 segundos
-        Invoke("ReiniciarJuego", 2f);
+        
     }
+
+    public void LoadRandomScene()
+    {
+        if (sceneNames.Length == 0)
+        {
+            Debug.LogError("No hay escenas asignadas en la lista de nombres de escenas.");
+            return;
+        }
+
+        // Seleccionar una escena aleatoria
+        int randomIndex = Random.Range(0, sceneNames.Length);
+        string selectedScene = sceneNames[randomIndex];
+
+        // Cargar la escena seleccionada
+        SceneManager.LoadScene(selectedScene);
+    }   
 
     void ReiniciarJuego()
     {

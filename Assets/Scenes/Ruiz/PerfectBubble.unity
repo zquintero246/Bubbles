@@ -611,6 +611,8 @@ MonoBehaviour:
   - Carrera_burbujas
   - Flappybird
   - VagabondShooter
+  - ProtectBubble
+  - Buceo_Bubbles
   IsInside: 0
   bubbleInterval: 1
   totalTime: 0

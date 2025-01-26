@@ -356,6 +356,8 @@ MonoBehaviour:
   - VagabondShooter
   - Carrera_Burbujas
   - PerfectBubble
+  - ProtectBubble
+  - Buceo_Bubbles
 --- !u!1 &928235288
 GameObject:
   m_ObjectHideFlags: 0

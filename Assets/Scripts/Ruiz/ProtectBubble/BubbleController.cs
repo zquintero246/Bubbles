@@ -9,10 +9,12 @@ public class BubbleController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float shootSpeed;
     [SerializeField] int health = 3;
-
+    [SerializeField] GameObject Wincoso;
     [SerializeField] GameObject direction;
     [SerializeField] GameObject directionArrow;
     [SerializeField] GameObject shooterBubble;
+    [SerializeField] Transform cameraTransform;
+    [SerializeField] Transform bubbleTransform;
 
     private Vector3 finalTarget;
 
@@ -48,6 +50,13 @@ public class BubbleController : MonoBehaviour
             finalTarget = (mousePosition - transform.position).normalized;
             shootedBubble.GetComponent<Rigidbody2D>().AddForce(finalTarget * shootSpeed, ForceMode2D.Impulse);
         }
+
+        if (transform.position.y >= 82.5f && cameraTransform.parent == bubbleTransform)
+        {
+            detachCamera();
+
+            Invoke(nameof(ActivarWinManager), 3f);
+        }
     }
 
     void FixedUpdate()
@@ -63,5 +72,16 @@ public class BubbleController : MonoBehaviour
             animator.Play("bubbleHurt");
             heartUI.sizeDelta = new Vector2(health * spriteSize, spriteSize);
         }
+    }
+
+    public void detachCamera()
+    {
+        cameraTransform.SetParent(null);
+    }
+
+void ActivarWinManager()
+    {
+        Wincoso.SetActive(true);
+        Debug.Log("WinManager activado después de 2 segundos.");
     }
 }

@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ruiz/PerfectBubble.unity
     guid: 8395d260e21cf614a906e2b38bb04527
+  - enabled: 1
+    path: Assets/Scenes/Ruiz/ProtectBubble.unity
+    guid: 5034214e9c9723143b1916b63f0f0562
+  - enabled: 1
+    path: Assets/Scenes/Julian/Buceo_Bubbles/Buceo_Bubbles.unity
+    guid: cca8f0d84389f314db7494de1948cfe9
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

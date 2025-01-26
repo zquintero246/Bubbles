@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ExtendidaBurbuja_0: -1620432354706173961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      view-on-clear-blue-sky-photo_0: 53649833367425142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

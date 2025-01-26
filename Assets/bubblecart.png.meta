@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubblecart_0: -5235013400287757423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

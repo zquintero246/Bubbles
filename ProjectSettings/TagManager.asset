@@ -9,6 +9,7 @@ TagManager:
   - Meta
   - Obstacle
   - Enemigo
+  - UICOSO
   layers:
   - Default
   - TransparentFX

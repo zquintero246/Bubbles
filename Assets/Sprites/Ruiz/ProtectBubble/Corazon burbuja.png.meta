@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a9e7bf6208c95d4dbd6e78cb6b032ce
+guid: d49e52fecdbebbe4c9fc5301b3cdcaed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2203380311295714062
-    second: Burbuja_0
+      213: -5637926049151875913
+    second: Corazon burbuja_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 1, y: 1, z: 0, w: 1}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,22 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Burbuja_0
+      name: Corazon burbuja_0
       rect:
         serializedVersion: 2
-        x: 159
-        y: 167
-        width: 194
-        height: 194
+        x: 3
+        y: 4
+        width: 59
+        height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e03eed718baf39e10800000000000000
-      internalID: 2203380311295714062
+      spriteID: 7b4816a112012c1b0800000000000000
+      internalID: -5637926049151875913
       vertices: []
       indices: 
       edges: []
@@ -123,15 +123,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Burbuja_0: 2203380311295714062
+      Corazon burbuja_0: -5637926049151875913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

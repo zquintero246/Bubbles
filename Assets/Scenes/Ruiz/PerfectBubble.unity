@@ -607,6 +607,10 @@ MonoBehaviour:
   loudnesSensivity: 320
   threshold: 35
   forcePulse: 0.761803
+  sceneNames:
+  - Carrera_burbujas
+  - Flappybird
+  - VagabondShooter
   IsInside: 0
   bubbleInterval: 1
   totalTime: 0

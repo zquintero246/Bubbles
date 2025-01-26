@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PerfectZoneController : MonoBehaviour
 {
@@ -10,28 +10,32 @@ public class PerfectZoneController : MonoBehaviour
     public float threshold;
     public float forcePulse;
 
+    public string[] sceneNames;
+
     [SerializeField] bool IsInside = false;
 
-    //Time Variables
+    // Time Variables
     [SerializeField] float bubbleInterval;
-    [SerializeField] float totalTime; //Tiempo para la puntuación final
-    [SerializeField] float currentInTime = 0; //Tiempo para la aparición de las burbujas
+    [SerializeField] float totalTime;
+    [SerializeField] float currentInTime = 0; 
+
+    private float scoreTimer = 40f; 
+    private bool scoreAdded = false; 
 
     Rigidbody2D _rb;
 
     public GameObject bubblePrefab;
     public GameObject bubbleSpawner;
-    // Start is called before the first frame update
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         StartCoroutine("GenerateBubbles");
+        StartCoroutine("ScoreTimer");  
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (transform.position.y < -3.45f)
         {
             transform.position = new Vector2(transform.position.x, -3.45f);
@@ -52,23 +56,23 @@ public class PerfectZoneController : MonoBehaviour
         if (loudness >= threshold)
         {
             _rb.AddForce(Vector2.up * forcePulse, ForceMode2D.Impulse);
-        } else
+        }
+        else
         {
             _rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, Time.deltaTime * 4.0f);
         }
     }
+
     private IEnumerator GenerateBubbles()
     {
-        Debug.Log("Me activé");
+        Debug.Log("Me activÃ©");
         if (IsInside)
         {
             Debug.Log("Estoy generando burbujas");
             GameObject bubble = Instantiate(bubblePrefab, bubbleSpawner.transform.position, Quaternion.identity);
-
             bubble.transform.localScale = new Vector3(0.1f + currentInTime / 10f, 0.1f + currentInTime / 10f, 0.1f + currentInTime / 10f);
         }
-        yield return new WaitForSeconds(bubbleInterval / Mathf.Max(1f, currentInTime)); // Genera más burbujas cuanto más tiempo pase
-
+        yield return new WaitForSeconds(bubbleInterval / Mathf.Max(1f, currentInTime)); 
         StartCoroutine("GenerateBubbles");
     }
 
@@ -87,5 +91,49 @@ public class PerfectZoneController : MonoBehaviour
         IsInside = false;
         totalTime += currentInTime;
         currentInTime = 0f;
+    }
+
+    // Corrutina que se ejecuta despuÃ©s de 40 segundos para agregar la puntuaciÃ³n
+    private IEnumerator ScoreTimer()
+    {
+        yield return new WaitForSeconds(scoreTimer);
+
+        if (!scoreAdded) // Asegurarse de que solo se ejecute una vez
+        {
+            int scoreToAdd = Mathf.RoundToInt(totalTime * 10);
+            if (ScoreMan.instance != null)
+            {
+                ScoreMan.instance.AddScore(scoreToAdd);
+                Debug.Log("PuntuaciÃ³n aÃ±adida: " + scoreToAdd);
+            }
+            else
+            {
+                Debug.LogError("ScoreMan instance no encontrada.");
+            }
+            scoreAdded = true;  // Evitar que se repita la suma de puntos
+        }
+
+        // Aprovecho este mismo segmento de codigo para crear el timer de cambio de escena
+
+        // Verificar si totalTime es mayor o igual a 15 antes de cambiar de escena
+        if (totalTime >= 15)
+        {
+            if (sceneNames.Length > 0)
+            {
+                int randomIndex = Random.Range(0, sceneNames.Length);
+                string nextScene = sceneNames[randomIndex];
+                Debug.Log("Cambiando a la escena: " + nextScene);
+                SceneManager.LoadScene(nextScene);
+            }
+            else
+            {
+                Debug.LogError("No hay escenas disponibles para cambiar.");
+            }
+        }
+        else
+        {
+            Debug.Log("No se cumple la condiciÃ³n para cambiar de escena (totalTime < 15).");
+        }
+
     }
 }

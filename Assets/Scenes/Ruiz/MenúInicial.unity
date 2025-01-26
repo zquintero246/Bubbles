@@ -545,6 +545,10 @@ GameObject:
   - component: {fileID: 787145947}
   - component: {fileID: 787145950}
 <<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
+<<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
+=======
+  - component: {fileID: 1224926286}
+>>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
 =======
   - component: {fileID: 1224926286}
 >>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
@@ -680,6 +684,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
+<<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
   m_GameObject: {fileID: 1224926285}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -710,12 +715,17 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+=======
+>>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
   m_GameObject: {fileID: 787145946}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c38d99269cc21c042a6d01851057526d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
+>>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
+=======
 >>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
 --- !u!1 &1337660786
 GameObject:
@@ -785,6 +795,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
 <<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
 --- !u!1001 &1539394776
 PrefabInstance:
@@ -950,6 +961,8 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ee0527940e4b8d448fbe60e9a2d8960, type: 3}
 =======
+=======
+>>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
 --- !u!1 &2086514493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1038,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086514493}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream:Assets/Scenes/Ruiz/MenúInicial.unity
+>>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
+=======
 >>>>>>> Stashed changes:Assets/Scenes/Latorre/MenúInicial.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

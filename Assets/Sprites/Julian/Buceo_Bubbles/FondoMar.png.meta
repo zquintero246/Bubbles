@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 029d1750cfd8eeb4182817b42ddd4817
+guid: 56ffd23843b013e47add2f548534cb3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7066744387264326747
-    second: PistaCarreras_0
+      213: 7918646350579080892
+    second: FondoMar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PistaCarreras_0
+      name: FondoMar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 611
-        height: 195
+        width: 1600
+        height: 742
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5c2069349e121260800000000000000
-      internalID: 7066744387264326747
+      spriteID: cbe953ca6eea4ed60800000000000000
+      internalID: 7918646350579080892
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PistaCarreras_0: 7066744387264326747
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

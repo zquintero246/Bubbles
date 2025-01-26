@@ -55,7 +55,7 @@ public class Spawner_Obstaculos : MonoBehaviour
                     spawnPosition.y = posicionesY[Random.Range(0, posicionesY.Length)];
 
                     // Ajustar la posición en Z para asegurarse de que esté en -1
-                    spawnPosition.z = -1f;
+                    spawnPosition.z = 1f;
 
                     // Verificar si la posición está libre dentro del radio
                     if (PosicionLibre(spawnPosition))

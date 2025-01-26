@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - IAPlayer
+  - Objetivo
+  - Meta
+  - Obstacle
+  - Enemigo
   layers:
   - Default
   - TransparentFX
@@ -12,7 +16,7 @@ TagManager:
   - capaObstaculos
   - Water
   - UI
-  - 
+  - Burbujas
   - 
   - 
   - 

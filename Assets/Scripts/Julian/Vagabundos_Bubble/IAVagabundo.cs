@@ -60,7 +60,6 @@ public class IAVagabundo : MonoBehaviour
         if (Mathf.Abs(rb.velocity.y) < 0.01f)
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-            Debug.Log("IA ha saltado!");
         }
     }
 
